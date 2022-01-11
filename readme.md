@@ -10,6 +10,10 @@ Current integration and future integrations
 - [ ] Twitter
 - [ ] Telegram
 
+# Enviroment Variables
+
+see [./env.example](env.example) as reference of env variables to use
+
 # Endpoints
 
 ## create a message

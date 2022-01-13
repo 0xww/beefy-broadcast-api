@@ -5,7 +5,7 @@ const { API_KEYS } = require("../constants");
 const auth = async (ctx, next) => {
   if (
     ctx.request.query.apikey &&
-    API_KEYS.some((key) => ctx.request.query.apikey.includes(key))
+    API_KEYS.some((key) => ctx.request.query.apikey === key)
   ) {
     return await next();
   }

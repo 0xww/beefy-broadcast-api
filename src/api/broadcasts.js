@@ -14,9 +14,7 @@ const schema = Joi.object({
     apikey: Joi.string().alphanum().required(),
   },
   body: {
-    type: Joi.string()
-      .valid("warning", "error", "fatal", "info")
-      .default("info"),
+    type: Joi.string().valid("warning", "error", "info").default("info"),
     title: Joi.string().min(4).required(),
     message: Joi.string().min(4).required(),
     platforms: Joi.array()

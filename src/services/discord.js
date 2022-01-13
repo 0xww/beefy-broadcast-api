@@ -10,7 +10,7 @@ export const sendMessage = async ({
 }) => {
   let params = {
     username: "Messanger Cow",
-    content: `**${title}**\n${message}\n-`,
+    content: `**${title}**\n${message}\n‎`,
   };
 
   switch (type) {

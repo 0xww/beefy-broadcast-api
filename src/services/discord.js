@@ -10,23 +10,18 @@ export const sendMessage = async ({
 }) => {
   let params = {
     username: "Messanger Cow",
-    content: `
-    **${title}**
-    - ${message}\n`,
+    content: `**${title}**\n${message}\n-`,
   };
 
   switch (type) {
     case "warning":
-      params.content = " - - - - WARNING - - - - " + params.content;
+      params.content = "⚠️ WARNING -> " + params.content;
       break;
     case "error":
-      params.content = " - - - - ERROR - - - - -" + params.content;
-      break;
-    case "alert":
-      params.content = " - - - - ALERT - - - - - " + params.content;
+      params.content = "🔥 ERROR -> " + params.content;
       break;
     default:
-      params.content = " - - - - INFO - - - - - - " + params.content;
+      params.content = "ℹ️ INFO -> " + params.content;
       break;
   }
 

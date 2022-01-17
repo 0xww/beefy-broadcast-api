@@ -10,6 +10,7 @@ const etag = require("koa-etag");
 
 const rt = require("./middleware/rt");
 const powered = require("./middleware/powered");
+const error = require("./middleware/error");
 const router = require("./router");
 
 const app = new Koa();
@@ -27,6 +28,8 @@ app.context.cache = {};
 
 app.use(router.routes());
 app.use(router.allowedMethods());
+
+app.use(error);
 
 const port = process.env.PORT || 3000;
 app.listen(port);

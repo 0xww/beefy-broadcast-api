@@ -44,17 +44,20 @@ router.get("/", async (ctx, next) => {
 router.post("/", validate(schema), async (ctx, next) => {
   if (ctx.request.body.platforms.includes("discord")) {
     let { title, message, type } = ctx.request.body;
-    discord.sendMessage({
-      title,
-      message,
-      type,
-    });
+    try {
+      discord.sendMessage({
+        title,
+        message,
+        type,
+      });
+      ctx.response.body = {
+        success: true,
+        messages: "broadcasting the meesages",
+      };
+    } catch (error) {
+      throw error;
+    }
   }
-
-  ctx.response.body = {
-    success: true,
-    messages: "broadcasting the meesages",
-  };
 });
 
 module.exports = router;

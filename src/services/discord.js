@@ -6,11 +6,12 @@ export const sendMessage = async ({
   title,
   message,
   type = "info",
-  icon = "https://beefy.com/images/icons/cow.svg",
+  avatar = "https://raw.githubusercontent.com/beefyfinance/beefy-broadcast-api/main/src/images/messenger_cow.png",
 }) => {
   let params = {
     username: "Messenger Cow",
     content: `**${title}**\n${message}\n‎`,
+    avatar_url: avatar,
   };
 
   switch (type) {

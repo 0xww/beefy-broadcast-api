@@ -9,7 +9,7 @@ export const sendMessage = async ({
   icon = "https://beefy.com/images/icons/cow.svg",
 }) => {
   let params = {
-    username: "Messanger Cow",
+    username: "Messenger Cow",
     content: `**${title}**\n${message}\n‎`,
   };
 

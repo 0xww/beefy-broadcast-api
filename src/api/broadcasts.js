@@ -15,7 +15,7 @@ const schema = Joi.object({
   },
   body: {
     username: Joi.string(),
-    avatar: Joi.string().uri("http"),
+    avatar: Joi.string().uri({ scheme: ["http"] }),
     type: Joi.string().valid("warning", "error", "info").default("info"),
     title: Joi.string().min(4).required(),
     message: Joi.string().min(4).required(),

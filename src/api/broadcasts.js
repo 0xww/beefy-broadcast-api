@@ -14,6 +14,8 @@ const schema = Joi.object({
     apikey: Joi.string().alphanum().required(),
   },
   body: {
+    username: Joi.string(),
+    avatar: Joi.string().uri("http"),
     type: Joi.string().valid("warning", "error", "info").default("info"),
     title: Joi.string().min(4).required(),
     message: Joi.string().min(4).required(),
@@ -34,18 +36,13 @@ const schema = Joi.object({
 
 router.use(auth);
 
-router.get("/", async (ctx, next) => {
-  ctx.response.body = {
-    success: true,
-    messages: "broadcasting the meesages my friend",
-  };
-});
-
 router.post("/", validate(schema), async (ctx, next) => {
   if (ctx.request.body.platforms.includes("discord")) {
-    let { title, message, type } = ctx.request.body;
+    let { title, message, type, avatar, username } = ctx.request.body;
     try {
       discord.sendMessage({
+        username,
+        avatar,
         title,
         message,
         type,

@@ -24,6 +24,8 @@ see [./env.example](env.example) as reference of env variables to use
  * POST /broadcasts?apikey="this is secret apikey"
  */
 {
+	username: 'Messenger Cow', // [optional] default is 'Messenger Cow'
+	avatar: 'cow.png', // [optional] default is ./src/images/messenger_cow.png
 	type: 'warning', // ( info | warning | error | fatal )
 	title: 'subsidy is lower than 10%',
 	message: 'be care on this things be cause jessy can do a disaster on the lab without me',
